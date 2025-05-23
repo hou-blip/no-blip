@@ -1,22 +1,24 @@
 #include <stdio.h>
 
-double P(int n,double x)
-{
-    if(n==0)
-        return 1;
-    else if(n==1)
-        return x;
-    else if(n>1){
-        return ((2*n-1)*x-P(n-1,x)-(n-1)*P(n-2,x))/n;
-    }
-}
-
 int main()
 {
-    double x;
-    int n;
-    scanf("%lf%d", &x, &n);
-    printf("%.2f", P(n,x));
+    const int number = 10;
+    int x;
+    int count[number];
+    int i;
+    for(i = 0;i<=number;i++){
+        count[i] = 0;
+    }
+    scanf("%d", &x);
+    while(x != -1){
+        if(x>=0&&x<=9){
+            count[x] ++;
+        }
+        scanf("%d", &x);
+    }
+    for(i=0;i<=number;i++){
+        printf("%d:%d\n", i, count[i]);
+    }
+
     return 0;
 }
-
